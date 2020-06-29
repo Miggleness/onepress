@@ -167,13 +167,12 @@ header {
 	padding-bottom: 10px;
 }
 header img {
-	width: 48px;
-	border-radius: 50%;
+	width: 200px;
 	border: none;
 }
 
 nav {
-	font-size: 10px;
+	font-size: 13px;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
 	text-transform: uppercase;
