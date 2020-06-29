@@ -6,10 +6,8 @@
 <body>
 	  <header class="header">
 			{{ partial "brand.html" . }}
-		</header>
-    <nav class="main-nav">
+        </header>
         {{ partial "nav.html" . }}
-    </nav>
     
     <!-- show sidebar if widgets param is set to true -->
     {{ if .Site.Params.widgets }}

@@ -1,7 +1,24 @@
-<ul>
-    <li class="active"><a href='{{ .Site.BaseURL }}'>Articles</a></li>
-    <li><a href='/about'>About</a></li>
-    {{ if .Site.Params.subscribeLink }}
-        <li><a href="{{ .Site.Params.subscribeLink }}" target="blank">Subscribe</a></li>
-    {{ end }}
-</ul>
+<nav class="main-nav">
+  <ul>
+    <li class="item {{ if .IsHome}}active {{- end -}}">
+      <a {{ if .IsHome -}} aria-current='page' {{ end -}} 
+        href="/">Home</a>
+    </li>
+
+    {{- range .Site.Menus.main -}}
+    
+    {{- $isCurrent := ( or ( $.IsMenuCurrent "main" . ) ( $.HasMenuCurrent "main" . ) ) -}}
+    <li class="item {{ if $isCurrent -}}active{{- end -}}">
+        <a href="{{- .URL -}}" 
+          {{- if $isCurrent -}}aria-current="page" {{- end -}}
+          >
+          {{- with .Pre -}}{{- . -}}{{- end -}}
+          {{- .Name -}}
+          {{- with .Post -}}{{- . -}}{{- end -}}
+        </a>
+      </li>
+    
+    {{- end -}}
+
+  </ul>
+</nav>
